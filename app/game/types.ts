@@ -42,7 +42,7 @@ export interface Transaction {
 export interface Company {
   id: string; playerName: string; name: string; iata: string; icao: string;
   callsign: string; country: string; base: string; primaryColor: string;
-  secondaryColor: string; difficulty: Difficulty; foundedAt: number;
+  secondaryColor: string; difficulty: Difficulty; foundedAt: number; avatarId?: number;
 }
 
 export interface StaffState {
