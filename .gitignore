@@ -13,6 +13,7 @@
 
 # next.js
 /.next/
+/.next-github/
 /.vinext/
 /out/
 
@@ -25,6 +26,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.tsbuildinfo
 
 # local environment
 .env*
