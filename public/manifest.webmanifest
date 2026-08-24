@@ -1,0 +1,10 @@
+{
+  "name": "Atlas Operations — Airline Tycoon",
+  "short_name": "Atlas Ops",
+  "description": "Simulador persistente de administração de companhia aérea.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#071a2f",
+  "theme_color": "#071a2f",
+  "lang": "pt-BR"
+}
