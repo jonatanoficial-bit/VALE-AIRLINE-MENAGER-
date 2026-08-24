@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[86194,["/VALE-AIRLINE-MENAGER-/_next/static/chunks/0eog50~01kpo8.js","/VALE-AIRLINE-MENAGER-/_next/static/chunks/17f2ht9wo-phb.js","/VALE-AIRLINE-MENAGER-/_next/static/chunks/010ija17l-0ls.js"],"default"]
+3:I[6391,["/VALE-AIRLINE-MENAGER-/_next/static/chunks/0eog50~01kpo8.js","/VALE-AIRLINE-MENAGER-/_next/static/chunks/17f2ht9wo-phb.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{}],[["$","script","script-0",{"src":"/VALE-AIRLINE-MENAGER-/_next/static/chunks/010ija17l-0ls.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"I61k2y2dHhqrqVxnWGGS3"}
+5:null
