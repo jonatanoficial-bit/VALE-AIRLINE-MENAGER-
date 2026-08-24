@@ -6,10 +6,13 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "vinext dev",
-    "build": "vinext build",
+    "dev": "next dev",
+    "build": "next build",
     "build:github": "next build",
-    "start": "vinext start",
+    "build:sites": "vinext build",
+    "dev:sites": "vinext dev",
+    "start": "next start",
+    "start:sites": "vinext start",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next"
   },
