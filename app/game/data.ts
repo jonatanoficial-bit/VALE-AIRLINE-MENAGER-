@@ -1,0 +1,88 @@
+import type { AircraftModel, Airport } from './types';
+
+const ap = (iata:string,icao:string,name:string,city:string,country:string,latitude:number,longitude:number,runwayLength:number,size:Airport['size'],demand:number,fees:number):Airport => ({iata,icao,name,city,country,latitude,longitude,runwayLength,size,demand,fees});
+
+export const AIRPORTS: Airport[] = [
+  ap('GRU','SBGR','Aeroporto Internacional de Guarulhos','São Paulo','Brasil',-23.4356,-46.4731,3700,'major',98,1.45),
+  ap('CGH','SBSP','Aeroporto de Congonhas','São Paulo','Brasil',-23.6261,-46.6564,1940,'major',92,1.35),
+  ap('GIG','SBGL','Aeroporto Internacional do Galeão','Rio de Janeiro','Brasil',-22.81,-43.2506,4000,'major',91,1.38),
+  ap('SDU','SBRJ','Aeroporto Santos Dumont','Rio de Janeiro','Brasil',-22.9105,-43.1631,1323,'medium',86,1.28),
+  ap('BSB','SBBR','Aeroporto Internacional de Brasília','Brasília','Brasil',-15.8697,-47.9208,3300,'major',89,1.25),
+  ap('CNF','SBCF','Aeroporto Internacional de Confins','Belo Horizonte','Brasil',-19.6244,-43.9719,3600,'major',82,1.18),
+  ap('VCP','SBKP','Aeroporto Internacional de Viracopos','Campinas','Brasil',-23.0074,-47.1345,3240,'major',84,1.18),
+  ap('REC','SBRF','Aeroporto Internacional do Recife','Recife','Brasil',-8.1265,-34.9236,3007,'major',86,1.22),
+  ap('SSA','SBSV','Aeroporto Internacional de Salvador','Salvador','Brasil',-12.9086,-38.3225,3003,'major',84,1.19),
+  ap('FOR','SBFZ','Aeroporto Internacional de Fortaleza','Fortaleza','Brasil',-3.7763,-38.5326,2755,'major',83,1.19),
+  ap('POA','SBPA','Aeroporto Internacional Salgado Filho','Porto Alegre','Brasil',-29.9944,-51.1714,2280,'major',80,1.15),
+  ap('CWB','SBCT','Aeroporto Internacional Afonso Pena','Curitiba','Brasil',-25.5285,-49.1758,2215,'major',80,1.13),
+  ap('FLN','SBFL','Aeroporto Internacional de Florianópolis','Florianópolis','Brasil',-27.6703,-48.5525,2400,'medium',79,1.12),
+  ap('BEL','SBBE','Aeroporto Internacional de Belém','Belém','Brasil',-1.3793,-48.4763,2800,'medium',75,1.08),
+  ap('MAO','SBEG','Aeroporto Internacional Eduardo Gomes','Manaus','Brasil',-3.0386,-60.0497,2700,'major',78,1.15),
+  ap('NAT','SBSG','Aeroporto Internacional de Natal','Natal','Brasil',-5.7681,-35.3761,3000,'medium',73,1.08),
+  ap('IGU','SBFI','Aeroporto Internacional de Foz do Iguaçu','Foz do Iguaçu','Brasil',-25.6003,-54.485,2195,'medium',72,1.04),
+  ap('MCZ','SBMO','Aeroporto Internacional de Maceió','Maceió','Brasil',-9.5108,-35.7917,2600,'medium',70,1.03),
+  ap('EZE','SAEZ','Ministro Pistarini International','Buenos Aires','Argentina',-34.8222,-58.5358,3300,'major',88,1.3),
+  ap('AEP','SABE','Aeroparque Jorge Newbery','Buenos Aires','Argentina',-34.5592,-58.4156,2700,'major',84,1.25),
+  ap('SCL','SCEL','Arturo Merino Benítez International','Santiago','Chile',-33.3929,-70.7858,3800,'major',88,1.32),
+  ap('LIM','SPJC','Jorge Chávez International','Lima','Peru',-12.0219,-77.1143,3507,'major',87,1.3),
+  ap('BOG','SKBO','El Dorado International','Bogotá','Colômbia',4.7016,-74.1469,3800,'major',91,1.38),
+  ap('MEX','MMMX','Benito Juárez International','Cidade do México','México',19.4363,-99.0721,3952,'major',94,1.55),
+  ap('JFK','KJFK','John F. Kennedy International','Nova York','Estados Unidos',40.6413,-73.7781,4423,'major',99,1.9),
+  ap('LAX','KLAX','Los Angeles International','Los Angeles','Estados Unidos',33.9416,-118.4085,3685,'major',99,1.88),
+  ap('MIA','KMIA','Miami International','Miami','Estados Unidos',25.7959,-80.287,3962,'major',95,1.65),
+  ap('ATL','KATL','Hartsfield-Jackson Atlanta International','Atlanta','Estados Unidos',33.6407,-84.4277,3624,'major',99,1.72),
+  ap('ORD','KORD','O Hare International','Chicago','Estados Unidos',41.9742,-87.9073,3962,'major',98,1.76),
+  ap('YYZ','CYYZ','Toronto Pearson International','Toronto','Canadá',43.6777,-79.6248,3389,'major',94,1.68),
+  ap('LHR','EGLL','Heathrow Airport','Londres','Reino Unido',51.47,-0.4543,3902,'major',100,2.05),
+  ap('CDG','LFPG','Charles de Gaulle Airport','Paris','França',49.0097,2.5479,4215,'major',99,1.92),
+  ap('FRA','EDDF','Frankfurt Airport','Frankfurt','Alemanha',50.0379,8.5622,4000,'major',98,1.88),
+  ap('MAD','LEMD','Adolfo Suárez Madrid-Barajas','Madri','Espanha',40.4983,-3.5676,4350,'major',96,1.72),
+  ap('LIS','LPPT','Humberto Delgado Airport','Lisboa','Portugal',38.7742,-9.1342,3705,'major',91,1.52),
+  ap('AMS','EHAM','Amsterdam Airport Schiphol','Amsterdã','Países Baixos',52.3105,4.7683,3800,'major',97,1.84),
+  ap('FCO','LIRF','Leonardo da Vinci Fiumicino','Roma','Itália',41.8003,12.2389,3900,'major',95,1.7),
+  ap('DXB','OMDB','Dubai International','Dubai','Emirados Árabes Unidos',25.2532,55.3657,4000,'major',100,1.86),
+  ap('DOH','OTHH','Hamad International','Doha','Catar',25.2731,51.6081,4850,'major',96,1.75),
+  ap('HND','RJTT','Tokyo Haneda Airport','Tóquio','Japão',35.5494,139.7798,3360,'major',100,1.95),
+  ap('SIN','WSSS','Singapore Changi Airport','Singapura','Singapura',1.3644,103.9915,4000,'major',98,1.82),
+  ap('HKG','VHHH','Hong Kong International','Hong Kong','China',22.308,113.9185,3800,'major',97,1.84),
+  ap('ICN','RKSI','Incheon International','Seul','Coreia do Sul',37.4602,126.4407,4000,'major',97,1.8),
+  ap('SYD','YSSY','Sydney Kingsford Smith','Sydney','Austrália',-33.9399,151.1753,3962,'major',96,1.78),
+  ap('AKL','NZAA','Auckland International','Auckland','Nova Zelândia',-37.0082,174.785,3635,'major',88,1.55),
+  ap('JNB','FAOR','O. R. Tambo International','Joanesburgo','África do Sul',-26.1337,28.242,4421,'major',91,1.5),
+  ap('CPT','FACT','Cape Town International','Cidade do Cabo','África do Sul',-33.97,18.6021,3201,'major',87,1.42),
+  ap('CAI','HECA','Cairo International','Cairo','Egito',30.112,31.400,3999,'major',90,1.45),
+  ap('ADD','HAAB','Addis Ababa Bole International','Adis Abeba','Etiópia',8.9779,38.7993,3700,'major',85,1.35)
+];
+
+const ac = (id:string,manufacturer:string,model:string,category:AircraftModel['category'],rangeKm:number,cruiseSpeedKmh:number,maxPassengers:number,cargoKg:number,fuelBurnKgHour:number,purchasePrice:number,leasePrice:number,crewPilots:number,crewCabin:number,runwayRequiredM:number,maintenanceFactor:number,stage:number,turnaroundMin:number):AircraftModel => ({id,manufacturer,model,category,rangeKm,cruiseSpeedKmh,maxPassengers,cargoKg,fuelBurnKgHour,purchasePrice,leasePrice,crewPilots,crewCabin,runwayRequiredM,maintenanceFactor,stage,turnaroundMin});
+
+export const AIRCRAFT: AircraftModel[] = [
+  ac('c208','Cessna','208B Grand Caravan','light',1982,317,9,1110,165,2800000,43000,1,0,900,.6,1,22),
+  ac('pc12','Pilatus','PC-12 NGX','executive',3417,528,9,1000,230,5200000,78000,1,0,800,.7,1,22),
+  ac('b1900d','Beechcraft','1900D','regional',2776,518,19,1000,465,6900000,98000,2,1,1200,.8,1,25),
+  ac('e120','Embraer','EMB 120 Brasília','turboprop',1750,555,30,900,580,9200000,128000,2,1,1350,.85,2,28),
+  ac('saab340','Saab','340B','turboprop',1732,467,34,1500,620,10500000,145000,2,1,1400,.9,2,30),
+  ac('atr42','ATR','42-600','turboprop',1326,556,48,1700,670,19800000,238000,2,2,1333,.85,2,30),
+  ac('atr72','ATR','72-600','turboprop',1528,510,72,2100,760,27200000,315000,2,2,1367,.88,3,32),
+  ac('q400','De Havilland','Dash 8 Q400','turboprop',2040,667,78,2200,1010,32500000,375000,2,2,1402,.92,3,35),
+  ac('erj145','Embraer','ERJ 145','regional',2873,833,50,1700,930,24400000,290000,2,1,2000,.95,3,35),
+  ac('crj700','Bombardier','CRJ700','regional',2553,829,70,2400,1250,36500000,410000,2,2,1900,1,3,38),
+  ac('e170','Embraer','E170','regional',3982,871,76,2900,1350,41000000,465000,2,2,1644,.96,3,40),
+  ac('e195e2','Embraer','E195-E2','regional',4815,870,146,4300,1850,60500000,625000,2,3,1800,.93,4,42),
+  ac('a220','Airbus','A220-300','narrowbody',6297,871,145,5200,1900,69000000,710000,2,3,1900,.92,4,43),
+  ac('a320neo','Airbus','A320neo','narrowbody',6300,828,186,7300,2350,98000000,910000,2,4,2100,.95,4,45),
+  ac('a321neo','Airbus','A321neo','narrowbody',7400,833,220,8200,2650,118000000,1080000,2,5,2300,1,4,48),
+  ac('b738','Boeing','737-800','narrowbody',5436,842,189,7000,2500,89000000,850000,2,4,2200,1,4,45),
+  ac('b38m','Boeing','737 MAX 8','narrowbody',6570,839,210,7600,2280,112000000,990000,2,4,2200,.95,4,45),
+  ac('b752','Boeing','757-200','narrowbody',7222,850,239,10200,3150,62000000,720000,2,5,2400,1.15,4,55),
+  ac('a339','Airbus','A330-900','widebody',13334,871,287,18000,5600,296000000,2250000,2,8,2800,1.12,5,90),
+  ac('a359','Airbus','A350-900','widebody',15000,903,350,22000,5800,317000000,2480000,2,9,2800,1.08,5,95),
+  ac('b789','Boeing','787-9','widebody',14140,903,296,20000,5700,292000000,2320000,2,8,2800,1.08,5,90),
+  ac('b77w','Boeing','777-300ER','widebody',13649,905,396,25000,7600,375000000,2850000,2,10,3050,1.18,5,105),
+  ac('b763f','Boeing','767-300F','cargo',6025,850,0,52700,4900,218000000,1750000,2,0,2600,1.15,5,80),
+  ac('c680a','Cessna','Citation Latitude','executive',5000,826,9,900,780,19800000,245000,2,0,1100,.82,2,25),
+  ac('g650','Gulfstream','G650ER','executive',13890,904,18,2500,1800,68000000,690000,2,2,1800,1.05,4,40)
+];
+
+export const airportByIata = (iata:string) => AIRPORTS.find(a => a.iata === iata);
+export const aircraftById = (id:string) => AIRCRAFT.find(a => a.id === id);
