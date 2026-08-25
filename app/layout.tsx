@@ -9,20 +9,26 @@ const siteOrigin = process.env.GITHUB_PAGES === 'true'
 
 export const metadata: Metadata = {
   metadataBase: new URL(`${siteOrigin}${basePath}/`),
-  title: 'Atlas Operations — Airline Tycoon',
-  description: 'Simulador persistente de administração de companhia aérea.',
+  title: 'Vale Airline Manager',
+  description: 'Simulador persistente e cinematográfico de administração de companhia aérea.',
   manifest: `${basePath}/manifest.webmanifest`,
+  applicationName: 'Vale Airline Manager',
+  appleWebApp: { capable: true, statusBarStyle: 'black-translucent', title: 'Vale Airline' },
+  icons: {
+    icon: [{ url: `${basePath}/icons/favicon-32.png`, sizes: '32x32', type: 'image/png' }],
+    apple: [{ url: `${basePath}/icons/apple-touch-icon.png`, sizes: '180x180', type: 'image/png' }],
+  },
   openGraph: {
-    title: 'Atlas Operations — Airline Tycoon',
-    description: 'Sua companhia. Sua malha. Seu mundo.',
+    title: 'Vale Airline Manager',
+    description: 'Construa sua companhia, conecte sua malha e administre uma operação aérea persistente.',
     type: 'website',
-    images: ['/og.png'],
+    images: [`${basePath}/og.png`],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Atlas Operations — Airline Tycoon',
-    description: 'Sua companhia. Sua malha. Seu mundo.',
-    images: ['/og.png'],
+    title: 'Vale Airline Manager',
+    description: 'Construa sua companhia, conecte sua malha e administre uma operação aérea persistente.',
+    images: [`${basePath}/og.png`],
   },
 };
 

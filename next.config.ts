@@ -6,12 +6,13 @@ const githubBasePath = `/${repositoryName}`;
 
 const nextConfig: NextConfig = isGitHubPages
   ? {
+      env: { NEXT_PUBLIC_BASE_PATH: githubBasePath },
       output: 'export',
       basePath: githubBasePath,
       assetPrefix: githubBasePath,
       trailingSlash: true,
       images: { unoptimized: true },
     }
-  : {};
+  : { env: { NEXT_PUBLIC_BASE_PATH: '' } };
 
 export default nextConfig;
