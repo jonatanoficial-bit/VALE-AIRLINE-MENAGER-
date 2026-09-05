@@ -1,2 +1,2 @@
-:HL["/VALE-AIRLINE-MENAGER-/_next/static/chunks/0ph6cecyjv2...css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"_7vPJek75KuPez6d96Tvl"}
+:HL["/VALE-AIRLINE-MENAGER-/_next/static/chunks/12ut_ly21_vdb.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"hke_d9qvuaLzEYspSditI"}
