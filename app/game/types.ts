@@ -47,22 +47,55 @@ export interface Company {
 
 export interface StaffState {
   pilots: number; cabin: number; engineers: number; mechanics: number; admin: number;
-  morale: number; training: number;
+  morale: number; training: number; fatigue: number;
 }
 
 export interface GameStats {
   flights: number; passengers: number; cargoKg: number; revenue: number;
   expenses: number; distanceKm: number; cancellations: number; onTime: number;
   safety: number; reputation: number; passengerReputation: number; cargoReputation: number;
+  delayedFlights: number;
 }
 
 export interface OfflineReport {
   elapsedMs: number; flights: number; passengers: number; cargoKg: number;
   revenue: number; fuelCost: number; staffCost: number; maintenanceCost: number;
-  fees: number; leasing: number; canceled: number; result: number;
+  fees: number; leasing: number; insurance: number; taxes: number; interest: number;
+  canceled: number; delayed: number; result: number;
 }
 
 export interface Loan { id: string; principal: number; balance: number; rate: number; takenAt: number; }
+
+export interface Competitor {
+  id: string; name: string; code: string; strategy: string;
+  aggression: number; service: number; fareIndex: number; marketShare: number;
+  activeRoutes: number; trend: number;
+}
+
+export interface MarketState {
+  economicIndex: number; seasonIndex: number; demandIndex: number;
+  competitorPressure: number; fuelVolatility: number; updatedAt: number;
+}
+
+export type EventSeverity = 'info' | 'warning' | 'critical';
+export interface GameEvent {
+  id: string; title: string; description: string; severity: EventSeverity;
+  startedAt: number; expiresAt: number; resolved: boolean;
+  demandImpact: number; delayImpact: number; fuelImpact: number; mitigationCost: number;
+}
+
+export interface FlightRecord {
+  id: string; timestamp: number; flightNumber: string; routeId: string;
+  origin: string; destination: string; aircraftRegistration: string;
+  passengers: number; cargoKg: number; revenue: number; delayMinutes: number;
+  status: 'completed' | 'delayed' | 'canceled'; connectionBonus: number;
+}
+
+export interface FinancialStatement {
+  days: number; revenue: number; airportFees: number; fuel: number; salaries: number;
+  maintenance: number; leasing: number; insurance: number; marketing: number;
+  interest: number; taxes: number; other: number; operatingResult: number; netResult: number;
+}
 
 export interface GameState {
   version: number; company: Company; cash: number; fuelStockKg: number;
@@ -70,6 +103,8 @@ export interface GameState {
   fleet: FleetAircraft[]; routes: Route[]; schedules: Schedule[];
   staff: StaffState; transactions: Transaction[]; stats: GameStats;
   loans: Loan[]; marketingUntil: number; marketingBoost: number;
+  competitors: Competitor[]; marketState: MarketState; events: GameEvent[];
+  flightLog: FlightRecord[];
   stage: number; lastSimulationAt: number; lastSavedAt: number; lastBackupAt: number;
 }
 

@@ -11,7 +11,7 @@ export const tutorialSteps = [
   {
     screen: 'dashboard',
     eyebrow: 'BEM-VINDO À PRESIDÊNCIA',
-    title: 'Eu sou Helena Vale',
+    title: 'Eu sou Helena',
     body: 'Serei sua secretária executiva nesta primeira operação. A Home agora mostra o mapa real da companhia: seu hub aparece em destaque e cada rota ativa é desenhada automaticamente.',
     action: 'Conhecer a frota',
   },
@@ -104,8 +104,8 @@ export function GuidedTutorial({ step, onNext, onBack, onClose }: { step: number
     <section className="tutorial-card">
       <button className="tutorial-close" onClick={onClose} aria-label="Fechar tutorial">×</button>
       <div className="tutorial-character">
-        <img src={`${basePath}/assets/characters/helena-vale.webp`} alt="Helena Vale, secretária executiva" />
-        <div><span>SECRETÁRIA EXECUTIVA</span><b>Helena Vale</b><small>Gabinete da Presidência</small></div>
+        <img src={`${basePath}/assets/characters/helena-vale.webp`} alt="Helena, secretária executiva" />
+        <div><span>SECRETÁRIA EXECUTIVA</span><b>Helena</b><small>Gabinete da Presidência</small></div>
       </div>
       <div className="tutorial-copy">
         <span className="eyebrow">{current.eyebrow}</span>
