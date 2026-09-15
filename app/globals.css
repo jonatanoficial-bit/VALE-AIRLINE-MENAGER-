@@ -61,3 +61,48 @@ body{background:#071726}.app-area{min-height:100vh;background:linear-gradient(18
 .finance-board{display:grid;grid-template-columns:1fr 1.1fr;gap:16px;margin-bottom:16px}.dre-table{display:grid}.dre-table>div{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:9px}.dre-table>div.total{margin-top:3px;border-top:1px solid #9eb6c0;font-weight:900}.balance-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}.balance-grid>div{display:grid;gap:5px;padding:12px;border:1px solid var(--line);border-radius:9px;background:#f7fafb}.balance-grid span{font-size:8px;color:var(--muted)}.balance-grid b{font-size:13px}.loan-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:9px}.loan-row>div{display:grid;gap:3px}.loan-row b{font-size:10px}.loan-row small{font-size:8px;color:var(--muted)}.loan-row button{min-height:34px;border:0;border-radius:7px;background:#e9f2f3;color:#20495b;font-size:8px;font-weight:900}
 @media(max-width:1000px){.market-pulse{grid-template-columns:1fr 1fr}.market-route-table>div{grid-template-columns:1fr 1fr}.market-route-table strong{text-align:left}.finance-board{grid-template-columns:1fr}}
 @media(max-width:560px){.event-banner{grid-template-columns:1fr;gap:5px}.market-pulse{gap:8px}.market-pulse .panel{padding:13px}.market-pulse strong{font-size:21px}.competitor-list>div{grid-template-columns:38px 1fr auto;padding:9px}.competitor-code{width:38px;height:38px}.market-route-table>div{grid-template-columns:1fr 1fr;padding:12px 0}.market-route-table b,.market-route-table strong{grid-column:1/-1}.flight-log>div{grid-template-columns:74px 1fr}.flight-log>div>strong{grid-column:2}.balance-grid{grid-template-columns:1fr}.loan-row{align-items:flex-start}.screen-competition .page-head{background-position:center}.finance-board{gap:10px}}
+/* Parte 2: progression panels, with touch-sized controls. */
+.progression-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,390px),1fr));gap:18px;align-items:start}
+.progress-card{display:flex;flex-direction:column;gap:18px;min-width:0;padding:24px}
+.progress-card h2{font-size:22px;line-height:1.2;margin:0}
+.progress-card p{font-size:14px;line-height:1.55;margin:0;color:#a8bbc9}
+.progress-card-head{display:flex;justify-content:space-between;align-items:start;gap:14px}
+.progress-card-head .eyebrow{display:block;margin-bottom:8px}
+.progress-badge{padding:7px 10px;border:1px solid #3b6874;border-radius:8px;color:#87dacc;font-size:12px;white-space:nowrap}
+.facility-list{display:flex;flex-direction:column;gap:0}
+.facility-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 0;border-top:1px solid rgba(148,184,204,.2)}
+.facility-row>div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.facility-row strong{font-size:14px;line-height:1.35}
+.facility-row span,.progress-hint{font-size:12px;color:#a8bbc9}
+.facility-row button{min-height:44px;padding:8px 12px;border:1px solid #5fb4aa;border-radius:9px;color:#c6fff4;background:rgba(53,135,132,.16);font-size:13px;font-weight:700;cursor:pointer;white-space:nowrap}
+.facility-row button:disabled{opacity:.45;cursor:default}
+.progress-card .field select,.progress-card .field input,.cabin-fields input,.cabin-fields select{width:100%;min-height:48px;font-size:16px}
+.progress-card>.primary,.progress-form>.primary{min-height:48px}
+.airport-preview{display:flex;flex-wrap:wrap;gap:8px}
+.airport-preview span{padding:7px 10px;border:1px solid rgba(148,184,204,.3);border-radius:8px;font-size:12px}
+.cabin-photo{height:180px;overflow:hidden;border-radius:12px;background:#102d42}
+.cabin-photo img{width:100%;height:100%;object-fit:cover}
+.cabin-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cabin-fields label{display:flex;flex-direction:column;gap:7px;font-size:13px;font-weight:700}
+.cabin-summary{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px;color:#8ce4cb}
+.cabin-summary.invalid{color:#ffb4a4}
+.contract-progress{display:flex;flex-direction:column;gap:8px}
+.contract-progress>div{display:flex;justify-content:space-between;gap:10px;font-size:13px}
+.contract-progress>i{height:8px;border-radius:20px;overflow:hidden;background:#203b50}
+.contract-progress>i>b{display:block;height:100%;background:#66d8bd}
+.contract-meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px}
+.contract-meta b{color:#e7c389}
+.progress-subhead{margin:24px 0 14px;font-size:22px}
+.achievement-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px}
+.achievement{display:flex;gap:12px;padding:16px;border:1px solid rgba(148,184,204,.2);border-radius:12px;background:rgba(15,41,58,.75);opacity:.55}
+.achievement.unlocked{opacity:1;border-color:#9c784c}
+.achievement>b{font-size:24px;color:#e3b976}
+.achievement>div{display:flex;flex-direction:column;gap:4px}
+.achievement strong{font-size:14px}
+.achievement span{font-size:12px;color:#a8bbc9}
+.progress-form{display:flex;flex-direction:column;gap:15px}
+.route-controls{display:flex;gap:6px!important;flex-direction:row!important}.route-controls button{min-width:66px}
+@media(max-width:600px){.progression-grid{grid-template-columns:1fr;gap:12px}.progress-card{padding:18px;gap:15px}.progress-card h2{font-size:20px}.progress-card-head{flex-wrap:wrap}.cabin-photo{height:150px}.facility-row button{min-width:83px}.progress-subhead{margin-top:20px}}
+.tutorial-task{margin-top:9px!important;padding:9px 12px;border:1px solid rgba(225,184,111,.45);border-radius:8px;color:#f3d29a!important;background:rgba(186,128,45,.12)}
+.tutorial-actions button:disabled{opacity:.5;cursor:not-allowed}
+@media(max-width:560px){.tutorial-card{grid-template-columns:86px 1fr}.tutorial-character{min-height:205px}.tutorial-copy{padding:14px 12px}.tutorial-copy h2{font-size:18px}.tutorial-copy p{font-size:12px;line-height:1.4}.tutorial-actions button{font-size:11px}.tutorial-character b{font-size:12px}}

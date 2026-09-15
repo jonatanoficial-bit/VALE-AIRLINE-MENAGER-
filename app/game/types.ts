@@ -22,6 +22,11 @@ export interface FleetAircraft {
   acquisitionPrice: number; monthlyLease: number; ageYears: number; hours: number;
   cycles: number; condition: number; value: number; status: FleetStatus;
   location: string; lastCheckHours: number; acquiredAt: number;
+  cabin: CabinConfiguration;
+}
+
+export interface CabinConfiguration {
+  economy: number; premiumEconomy: number; business: number; first: number;
 }
 
 export interface Route {
@@ -97,6 +102,27 @@ export interface FinancialStatement {
   interest: number; taxes: number; other: number; operatingResult: number; netResult: number;
 }
 
+export interface AirportInfrastructure {
+  airportIata: string; level: number; gates: number; loungeLevel: number;
+  maintenanceLevel: number; fuelDepotLevel: number; cargoLevel: number; openedAt: number;
+}
+
+export interface AircraftMarketOffer {
+  id: string; modelId: string; acquisition: Acquisition; price: number;
+  condition: number; ageYears: number; expiresAt: number; seller: string;
+}
+
+export type ContractStatus = 'offered' | 'active' | 'completed' | 'claimed' | 'expired';
+export interface Contract {
+  id: string; title: string; description: string; type: 'passengers' | 'cargo' | 'flights';
+  destination: string; target: number; progress: number; reward: number;
+  reputationReward: number; deadline: number; status: ContractStatus;
+}
+
+export interface Achievement {
+  id: string; title: string; description: string; unlockedAt?: number;
+}
+
 export interface GameState {
   version: number; company: Company; cash: number; fuelStockKg: number;
   fuelCapacityKg: number; fuelPrice: number; fuelAverageCost: number;
@@ -105,6 +131,9 @@ export interface GameState {
   loans: Loan[]; marketingUntil: number; marketingBoost: number;
   competitors: Competitor[]; marketState: MarketState; events: GameEvent[];
   flightLog: FlightRecord[];
+  hubs: string[]; infrastructure: AirportInfrastructure[];
+  aircraftMarket: AircraftMarketOffer[]; aircraftMarketRefreshAt: number;
+  contracts: Contract[]; contractRefreshAt: number; achievements: Achievement[];
   stage: number; lastSimulationAt: number; lastSavedAt: number; lastBackupAt: number;
 }
 

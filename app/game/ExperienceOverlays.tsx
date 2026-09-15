@@ -14,34 +14,63 @@ export const tutorialSteps = [
     title: 'Eu sou Helena',
     body: 'Serei sua secretária executiva nesta primeira operação. A Home agora mostra o mapa real da companhia: seu hub aparece em destaque e cada rota ativa é desenhada automaticamente.',
     action: 'Conhecer a frota',
+    requirement: 'intro',
   },
   {
     screen: 'market',
     eyebrow: 'ETAPA 1 · FROTA',
     title: 'Escolha seu primeiro avião',
-    body: 'Compare alcance, capacidade, pista mínima e preço. Aeronaves usadas economizam caixa; leasing reduz o investimento inicial; novas oferecem melhor condição.',
+    body: 'Compre ou arrende uma aeronave no mercado abaixo. Assim que a primeira entrar na frota, eu levarei você à próxima etapa.',
     action: 'Preparar a equipe',
+    requirement: 'fleet',
   },
   {
     screen: 'staff',
     eyebrow: 'ETAPA 2 · PESSOAS',
     title: 'Nenhum avião decola sozinho',
-    body: 'Contrate pilotos, comissários, mecânicos e administrativos. O painel mostra cobertura, moral e treinamento para você equilibrar segurança e custos.',
+    body: 'Contrate pelo menos um funcionário para reforçar a equipe inicial. Pessoas qualificadas mantêm a operação segura.',
+    action: 'Desenhar a cabine',
+    requirement: 'staff',
+  },
+  {
+    screen: 'cabins',
+    eyebrow: 'ETAPA 3 · CABINE',
+    title: 'Configure a experiência a bordo',
+    body: 'Ajuste o número de assentos e salve uma configuração viável. Mais espaço premium pode aumentar a receita, mas reduz a capacidade total.',
     action: 'Planejar uma rota',
+    requirement: 'cabin',
   },
   {
     screen: 'routes',
-    eyebrow: 'ETAPA 3 · MALHA',
+    eyebrow: 'ETAPA 4 · MALHA',
     title: 'Conecte seu hub ao mercado',
-    body: 'Selecione uma aeronave livre, escolha o destino, ajuste frequência e tarifa. O sistema calcula distância, demanda e cria automaticamente os voos de ida e volta.',
+    body: 'Selecione sua aeronave, o hub de origem e um destino. Programe uma rota para ativar os primeiros serviços.',
+    action: 'Aceitar uma missão',
+    requirement: 'route',
+  },
+  {
+    screen: 'contracts',
+    eyebrow: 'ETAPA 5 · MISSÕES',
+    title: 'Assuma um objetivo',
+    body: 'Aceite um contrato. Os voos futuros atualizarão o progresso; quando a meta for atingida, resgate a recompensa.',
+    action: 'Expandir a infraestrutura',
+    requirement: 'contract',
+  },
+  {
+    screen: 'infrastructure',
+    eyebrow: 'ETAPA 6 · HUB',
+    title: 'Invista no aeroporto',
+    body: 'Expanda uma instalação do seu hub inicial. Portões, manutenção, depósito, lounge e carga mudam a economia da malha.',
     action: 'Ver a operação',
+    requirement: 'infrastructure',
   },
   {
     screen: 'operations',
-    eyebrow: 'ETAPA 4 · OPERAÇÕES',
+    eyebrow: 'ETAPA 7 · OPERAÇÕES',
     title: 'O scheduler trabalha por você',
     body: 'Os horários ativos continuam gerando voos enquanto o jogo estiver fechado. Combustível, equipe, manutenção e caixa influenciam cada serviço.',
     action: 'Voltar ao comando',
+    requirement: 'operations',
   },
   {
     screen: 'dashboard',
@@ -49,6 +78,7 @@ export const tutorialSteps = [
     title: 'Sua companhia está em suas mãos',
     body: 'Acompanhe o mapa, o resultado projetado e as prioridades do CEO. Você pode rever esta orientação e a introdução a qualquer momento em Configurações.',
     action: 'Começar a administrar',
+    requirement: 'done',
   },
 ] as const;
 
@@ -98,7 +128,7 @@ export function IntroSequence({ onFinish }: { onFinish: () => void }) {
   </main>;
 }
 
-export function GuidedTutorial({ step, onNext, onBack, onClose }: { step: number; onNext: () => void; onBack: () => void; onClose: () => void }) {
+export function GuidedTutorial({ step, canAdvance, onNext, onBack, onClose }: { step: number; canAdvance: boolean; onNext: () => void; onBack: () => void; onClose: () => void }) {
   const current = tutorialSteps[step];
   return <div className="tutorial-layer" role="dialog" aria-modal="true" aria-label={`Tutorial, etapa ${step + 1} de ${tutorialSteps.length}`}>
     <section className="tutorial-card">
@@ -111,10 +141,11 @@ export function GuidedTutorial({ step, onNext, onBack, onClose }: { step: number
         <span className="eyebrow">{current.eyebrow}</span>
         <h2>{current.title}</h2>
         <p>{current.body}</p>
+        {!canAdvance && <p className="tutorial-task">Realize a ação indicada nesta tela para continuar. O tutorial não bloqueia os controles.</p>}
         <div className="tutorial-dots">{tutorialSteps.map((_, index) => <i className={index <= step ? 'active' : ''} key={index} />)}</div>
         <div className="tutorial-actions">
           <button className="text-button" onClick={onClose}>Pular tutorial</button>
-          <div>{step > 0 && <button onClick={onBack}>Voltar</button>}<button className="primary" onClick={onNext}>{current.action} <span>→</span></button></div>
+          <div>{step > 0 && <button onClick={onBack}>Voltar</button>}<button className="primary" disabled={!canAdvance} onClick={onNext}>{current.action} <span>→</span></button></div>
         </div>
       </div>
     </section>
